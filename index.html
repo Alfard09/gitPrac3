@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            background-color: #d3843a;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin: auto;
+            width: 50%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        h1 {
+            text-align: center;
+            margin-top: 148px;
+        }
+        h2 {
+            text-align: center;
+            margin-top: 0;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: 2px solid #ccc; /* add border */
+            margin-bottom: 10px;
+            box-sizing: border-box; /* adjust input width to include border */
+        }
+        input[type="text"]::placeholder,
+        input[type="password"]::placeholder {
+            color: #999; /* add placeholder color */
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+        .success-message {
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Use Username: Rohith and Password: 1234, to Login</h1>
+    <div class="container">
+        <h2>Login</h2>
+        <form method="post">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter username" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter password" required>
+            <center><button id="submit" type="submit">Submit</button></center>
+            <div class="error-message" id="error-message"></div>
+            <div class="success-message" id="success-message"></div>
+        </form>
+    </div>
+
+    <script>
+	document.querySelector('form').addEventListener('submit', function(e) {
+		e.preventDefault();
+		var username = document.getElementById('username').value;
+		var password = document.getElementById('password').value;
+		if (username === 'Rohith' && password === '1234') {
+			document.getElementById('error-message').innerHTML = '';
+			document.getElementById('success-message').innerHTML = 'Login Successful! Redirecting to dashboard page...';
+			setTimeout(function(){ 
+				window.location.href = 'dashboard.html'; // Redirect to dashboard page 
+			}, 2000);
+		} else {
+			document.getElementById('error-message').innerHTML = 'Incorrect username or password';
+		}
+	});
+</script>
+
+</body>
+</html>
